@@ -1,0 +1,41 @@
+// Project1_304.cpp : Defines the entry point for the console application.
+
+#include "stdafx.h"
+#include "matrix.h"
+#include <iostream>
+
+using  namespace  std;
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	int r, c;
+	cout << "Input only a SQUARE matrix: \n";
+	cout << "Input Row: ";
+	cin >> r;
+	cout << "Input Col: ";
+	cin >> c;
+
+	matrix A(r, c);
+	matrix B(c);
+	
+	cout << " Find LU from A: \n";
+	cout << "===========================\n";
+	A.fillMatrix();
+	A.print();
+	cout << "U matrix: \n";
+	A.getU();
+	cout << "L matrix: \n";
+	A.getL();
+	cout << "derterminate: ";
+	A.det();
+	
+	cout << " Solve for x, Ax = B:  \n";
+	cout << "===========================\n";
+	B.fillB(c);
+	B.solveX(c);
+
+
+	return 0;
+}
+
